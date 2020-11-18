@@ -7,7 +7,7 @@ from random import Random
 from bionic.exception import CodeVersioningError
 from bionic.persistence import FakeCloudStore
 from bionic import interpret
-import bionic as bn
+import bionic as bn  # noqa: F401
 
 
 class SimpleFlowModel:
@@ -158,7 +158,7 @@ class SimpleFlowModel:
         entity = self._entities_by_name[name]
 
         vars_dict = {
-            "bn": bn,
+            **globals(),
             "builder": self._builder,
             "record_call": self._last_called_names.append,
             "noop_func": lambda x: None,
